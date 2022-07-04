@@ -1,0 +1,49 @@
+{
+  "persons": [
+    {
+      "name": "rujuta ",
+      "city": "bangalore",
+      "id": 1
+    },
+    {
+      "name": "anisaa",
+      "city": "andheri",
+      "id": 2
+    },
+    {
+      "name": "priya",
+      "city": "delhi",
+      "id": 3
+    },
+    {
+      "name": "adi",
+      "city": "pune",
+      "id": 4
+    },
+    {
+      "name": "sara",
+      "city": "goa",
+      "id": 5
+    },
+    {
+      "name": "arya",
+      "city": "pune",
+      "id": 6
+    },
+    {
+      "name": "dhruv",
+      "city": "LA",
+      "id": 7
+    },
+    {
+      "name": "ruhi",
+      "city": "kerala",
+      "id": 8
+    },
+    {
+      "name": "urvi",
+      "city": "goa",
+      "id": 9
+    }
+  ]
+}

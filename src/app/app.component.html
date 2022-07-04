@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body class="mainbody">
+  <div class="container-fluid">
+    <div class="row justify-content-center bg-dark text-white">
+      <h1>CRUD Operations using JSON Data</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-6"><br>
+        <p class="font-weight-bold">Column - 1</p>
+
+        <form [formGroup]="ourform" (ngSubmit)="senddata()">
+          <div class="form-group"><br>
+            Name: <input type="text" class="form-control" placeholder="Enter Name" formControlName="name">
+          </div>
+          <div class="form-group">
+            City: <input type="text" class="form-control" placeholder="Enter City" formControlName="city">
+          </div><br>
+          <button type="submit" class="btn btn-primary">Submit</button>&nbsp;
+          <button type="submit" class="btn btn-primary" (click)="updatedata()">Update</button>&nbsp;
+          <button type="reset" class="btn btn-primary">Clear</button>
+          <br>
+        </form>
+      </div>
+
+      <div class="col-6 "><br>
+        <p class="font-weight-bold">Column - 2</p>
+        <div class="form-group"><br>
+          Search data: <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchterm">
+        </div>
+        <table border=2 class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>NAME</th>
+              <th>CITY</th>
+              <th>EVENTS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of representdata | filterPipe:searchterm | paginate : {itemsPerPage:3, currentPage:p}">
+              <td>{{data.name}}</td>
+              <td>{{data.city}}</td>
+              &nbsp;
+              <button class="btn btn-danger " type="button" (click)='deletedata(data.id)'>Delete data</button>&nbsp;
+              <button class="btn btn-warning " type="button" (click)="editdata(data.id)">Edit</button>
+            </tr>
+          </tbody>
+        </table><br><br>
+        <pagination-controls (pageChange)="p= $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<router-outlet></router-outlet>
